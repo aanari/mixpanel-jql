@@ -398,7 +398,7 @@ class JQL(object):
             keys = [keys]
         jql = self._clone()
         jql.operations += ("groupBy([%s], %s)"
-                           % (", ".join(_f(k) for k in keys), _f(accumulator)),)
+                           % (", ".join(_f(k) for k in keys), str(accumulator)),)
         return jql
 
     def group_by_user(self, keys, accumulator):
@@ -406,7 +406,7 @@ class JQL(object):
             keys = [keys]
         jql = self._clone()
         jql.operations += ("groupByUser([%s], %s)"
-                           % (", ".join(_f(k) for k in keys), _f(accumulator)),)
+                           % (", ".join(_f(k) for k in keys), str(accumulator)),)
         return jql
 
     def query_plan(self):
